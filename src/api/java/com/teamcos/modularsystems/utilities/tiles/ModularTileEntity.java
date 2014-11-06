@@ -1,5 +1,6 @@
 package com.teamcos.modularsystems.utilities.tiles;
 
+import com.teamcos.modularsystems.helpers.Coord;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
@@ -22,15 +23,24 @@ public class ModularTileEntity extends TileEntity {
 	public static boolean isPoweringTo(World world, int x, int y, int z, int side) {
 		return world.getBlock(x, y, z).isProvidingWeakPower(world, x, y, z, side) > 0;
 	}
-	
-	public TileEntity getTileInDirection(ForgeDirection direction) {
-		int x = xCoord + direction.offsetX;
-		int y = yCoord + direction.offsetY;
-		int z = zCoord + direction.offsetZ;
 
-		if (worldObj != null && worldObj.blockExists(x, y, z)) { return worldObj.getTileEntity(x, y, z); }
-		return null;
-	}
+    public TileEntity getTileInDirection(ForgeDirection direction) {
+        int x = xCoord + direction.offsetX;
+        int y = yCoord + direction.offsetY;
+        int z = zCoord + direction.offsetZ;
+
+        if (worldObj != null && worldObj.blockExists(x, y, z)) { return worldObj.getTileEntity(x, y, z); }
+        return null;
+    }
+
+    public TileEntity getTileInDirection(Coord direction) {
+        int x = xCoord + direction.x;
+        int y = yCoord + direction.y;
+        int z = zCoord + direction.z;
+
+        if (worldObj != null && worldObj.blockExists(x, y, z)) { return worldObj.getTileEntity(x, y, z); }
+        return null;
+    }
 	
 	@Override
 	public Packet getDescriptionPacket() {

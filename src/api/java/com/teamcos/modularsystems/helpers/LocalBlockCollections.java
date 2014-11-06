@@ -3,6 +3,7 @@ package com.teamcos.modularsystems.helpers;
 import com.teamcos.modularsystems.functions.WorldFunction;
 import com.teamcos.modularsystems.utilities.tiles.shapes.Cuboid;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,6 +12,25 @@ import java.util.List;
 public class LocalBlockCollections {
 
     private static final List<Coord> adjacentBlocks = Collections.unmodifiableList(adjacentBlocks(0, 0, 0));
+    private static final List<ForgeDirection> notUpDirections;
+    private static final List<ForgeDirection> neighborDirections;
+
+    static {
+        List<ForgeDirection> dirs = new ArrayList<ForgeDirection>();
+        dirs.add(ForgeDirection.DOWN);
+        dirs.add(ForgeDirection.EAST);
+        dirs.add(ForgeDirection.WEST);
+        dirs.add(ForgeDirection.NORTH);
+        dirs.add(ForgeDirection.SOUTH);
+        notUpDirections = Collections.unmodifiableList(dirs);
+        dirs = new ArrayList<ForgeDirection>();
+        dirs.add(ForgeDirection.DOWN);
+        dirs.add(ForgeDirection.EAST);
+        dirs.add(ForgeDirection.WEST);
+        dirs.add(ForgeDirection.NORTH);
+        dirs.add(ForgeDirection.SOUTH);
+        neighborDirections = Collections.unmodifiableList(dirs);
+    }
 
     private LocalBlockCollections() {}
 
@@ -23,6 +43,24 @@ public class LocalBlockCollections {
         coords.add(new Coord(x, y, z + 1));
         coords.add(new Coord(x, y, z - 1));
         return coords;
+    }
+
+    public static List<Coord> adjacentNotUpBlocks(int x, int y, int z) {
+        List<Coord> coords = new ArrayList<Coord>();
+        coords.add(new Coord(x + 1, y, z));
+        coords.add(new Coord(x - 1, y, z));
+        coords.add(new Coord(x, y - 1, z));
+        coords.add(new Coord(x, y, z + 1));
+        coords.add(new Coord(x, y, z - 1));
+        return coords;
+    }
+
+    public static List<ForgeDirection> getNotUpDirections() {
+        return notUpDirections;
+    }
+
+    public static List<ForgeDirection> getNeighborDirections() {
+        return neighborDirections;
     }
 
     public static List<Coord> getAdjacentBlocks() {

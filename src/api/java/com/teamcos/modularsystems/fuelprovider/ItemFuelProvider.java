@@ -2,6 +2,7 @@ package com.teamcos.modularsystems.fuelprovider;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class ItemFuelProvider implements FuelProvider {
 
@@ -24,6 +25,10 @@ public class ItemFuelProvider implements FuelProvider {
 
     @Override
     public double consume() {
+        ForgeDirection[] dirs = ForgeDirection.values();
+        for (ForgeDirection dir : dirs) {
+
+        }
         if (canProvide()) {
             fuel.stackSize--;
             double retVal = fuel == null ? 0 : fuelProvided();
