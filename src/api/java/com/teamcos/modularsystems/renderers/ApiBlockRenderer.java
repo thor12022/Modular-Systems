@@ -1,9 +1,9 @@
 package com.teamcos.modularsystems.renderers;
 
 import com.teamcos.modularsystems.manager.ApiBlockManager;
-import com.teamcos.modularsystems.utilities.block.ModularSystemsTile;
 import com.teamcos.modularsystems.utilities.tiles.DummyTile;
-import com.teamcos.modularsystems.utilities.tiles.FueledRecipeTile;
+import com.teamcos.modularsystems.utilities.tiles.MSCoreTile;
+import com.teamcos.modularsystems.utilities.tiles.MSTile;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -92,9 +92,9 @@ public class ApiBlockRenderer implements ISimpleBlockRenderingHandler {
                                     Block block, int modelId, RenderBlocks renderer) {
         TileEntity te = world.getTileEntity(x, y, z);
 
-        if (te instanceof ModularSystemsTile) {
-            ModularSystemsTile mst = (ModularSystemsTile) te;
-            FueledRecipeTile core = mst.getCore();
+        if (te instanceof MSTile) {
+            MSTile mst = (MSTile) te;
+            MSCoreTile core = mst.getCore();
             if (core != null) {
                 if (ApiRenderers.renderPass == 0) {
                     return doStandardRender(world, block, x, y, z, renderer);

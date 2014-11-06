@@ -1,4 +1,4 @@
-package com.teamcos.modularsystems.helpers;
+package com.teamcos.modularsystems.interfaces;
 
 import net.minecraft.world.World;
 

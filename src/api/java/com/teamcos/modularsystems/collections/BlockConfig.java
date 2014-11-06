@@ -1,4 +1,4 @@
-package com.teamcos.modularsystems.furnace.config;
+package com.teamcos.modularsystems.collections;
 
 import com.teamcos.modularsystems.calculations.Calculation;
 

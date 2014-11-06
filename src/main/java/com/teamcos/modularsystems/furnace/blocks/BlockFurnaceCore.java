@@ -4,7 +4,7 @@ import com.teamcos.modularsystems.core.ModularSystems;
 import com.teamcos.modularsystems.core.managers.BlockManager;
 import com.teamcos.modularsystems.core.proxy.ClientProxy;
 import com.teamcos.modularsystems.furnace.tiles.TileEntityFurnaceCore;
-import com.teamcos.modularsystems.interfaces.MSUpgradeBlock;
+import com.teamcos.modularsystems.utilities.block.MSUpgradeBlock;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;

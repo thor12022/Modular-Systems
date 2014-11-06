@@ -1,9 +1,9 @@
 package com.teamcos.modularsystems.core.helper;
 
 import com.teamcos.modularsystems.calculations.*;
-import com.teamcos.modularsystems.furnace.config.BlockConfig;
+import com.teamcos.modularsystems.collections.BlockConfig;
+import com.teamcos.modularsystems.registries.ApiRegistries;
 import com.teamcos.modularsystems.registries.FurnaceConfigHandler;
-import com.teamcos.modularsystems.registries.MaterialRegistry;
 import net.minecraft.block.material.Material;
 import org.apache.commons.io.FileUtils;
 import org.w3c.dom.Document;
@@ -62,7 +62,7 @@ public class BlockValueHelper {
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element element = (Element) nNode;
                 String name = element.getAttribute("name");
-                Material material = MaterialRegistry.retrieveMaterial(name);
+                Material material = ApiRegistries.materialRegistry.retrieveMaterial(name);
                 if (material != null) {
                     Element speed = getElement(element, "speed");
                     Element efficiency = getElement(element, "efficiency");

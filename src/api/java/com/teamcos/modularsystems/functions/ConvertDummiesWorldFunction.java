@@ -1,7 +1,7 @@
 package com.teamcos.modularsystems.functions;
 
 import com.teamcos.modularsystems.helpers.FurnaceHelper;
-import com.teamcos.modularsystems.utilities.block.ModularSystemsTile;
+import com.teamcos.modularsystems.utilities.tiles.MSTile;
 import com.teamcos.modularsystems.utilities.tiles.DummyTile;
 import com.teamcos.modularsystems.utilities.tiles.FueledRecipeTile;
 import net.minecraft.block.Block;
@@ -24,7 +24,7 @@ public class ConvertDummiesWorldFunction implements WorldFunction {
 
         bcFunc.outerBlock(world, x, y, z);
         Block block = world.getBlock(x, y, z);
-        ModularSystemsTile msTile;
+        MSTile msTile;
         if (block != null &&
                 block != Blocks.air &&
                 !FurnaceHelper.isModularBlock(block)) {
@@ -42,7 +42,7 @@ public class ConvertDummiesWorldFunction implements WorldFunction {
             world.markBlockForUpdate(x, y, z);
             dummyTE.setCore(core);
         } else if (FurnaceHelper.isModularBlock(block)
-                && (msTile = (ModularSystemsTile) world.getTileEntity(x, y, z)).getCore() == null) {
+                && (msTile = (MSTile) world.getTileEntity(x, y, z)).getCore() == null) {
             msTile.setCore(core);
         }
     }

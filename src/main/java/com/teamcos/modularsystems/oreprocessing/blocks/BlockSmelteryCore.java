@@ -3,7 +3,7 @@ package com.teamcos.modularsystems.oreprocessing.blocks;
 import com.teamcos.modularsystems.core.ModularSystems;
 import com.teamcos.modularsystems.core.managers.BlockManager;
 import com.teamcos.modularsystems.core.proxy.ClientProxy;
-import com.teamcos.modularsystems.interfaces.MSUpgradeBlock;
+import com.teamcos.modularsystems.utilities.block.MSUpgradeBlock;
 import com.teamcos.modularsystems.oreprocessing.tiles.TileEntitySmelteryCore;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

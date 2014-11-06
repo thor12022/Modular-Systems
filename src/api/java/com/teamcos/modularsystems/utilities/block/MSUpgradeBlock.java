@@ -1,4 +1,4 @@
-package com.teamcos.modularsystems.interfaces;
+package com.teamcos.modularsystems.utilities.block;
 
 public interface MSUpgradeBlock {
     double getEfficiency(int blockCount);

@@ -1,5 +1,6 @@
 package com.teamcos.modularsystems.helpers;
 
+import com.teamcos.modularsystems.interfaces.Locatable;
 import net.minecraft.tileentity.TileEntity;
 
 public class WorldUtil {

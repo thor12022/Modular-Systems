@@ -5,9 +5,8 @@ import com.teamcos.modularsystems.collections.StandardValues;
 import com.teamcos.modularsystems.fuelprovider.FuelProvider;
 import com.teamcos.modularsystems.fuelprovider.ItemFuelProvider;
 import com.teamcos.modularsystems.functions.*;
-import com.teamcos.modularsystems.helpers.Coord;
+import com.teamcos.modularsystems.collections.Coord;
 import com.teamcos.modularsystems.helpers.LocalBlockCollections;
-import com.teamcos.modularsystems.interfaces.ICore;
 import com.teamcos.modularsystems.utilities.tiles.shapes.Cuboid;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -23,7 +22,7 @@ import net.minecraft.world.World;
 
 import java.util.*;
 
-public abstract class FueledRecipeTile extends ModularTileEntity implements ISidedInventory, ICore {
+public abstract class FueledRecipeTile extends ModularTileEntity implements ISidedInventory, MSCoreTile {
 
     private static final int cookSpeed = 200;
     private static final FuelSorter fuelSorter = new FuelSorter();

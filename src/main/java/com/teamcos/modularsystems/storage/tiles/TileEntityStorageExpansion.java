@@ -7,7 +7,7 @@ import com.teamcos.modularsystems.core.lib.Reference;
 import com.teamcos.modularsystems.core.managers.BlockManager;
 import com.teamcos.modularsystems.core.tiles.ModularTileEntity;
 import com.teamcos.modularsystems.utilities.WorldUtil;
-import com.teamcos.modularsystems.helpers.Coord;
+import com.teamcos.modularsystems.collections.Coord;
 import net.minecraft.block.Block;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.Entity;

@@ -1,4 +1,4 @@
-package com.teamcos.modularsystems.modules;
+package com.teamcos.modularsystems.manager;
 
 public class ModuleManager
 {

@@ -1,11 +1,10 @@
 package com.teamcos.modularsystems.utilities.block;
 
-import com.teamcos.modularsystems.interfaces.MSUpgradeBlock;
 import com.teamcos.modularsystems.registries.FurnaceConfigHandler;
 import com.teamcos.modularsystems.renderers.ApiRenderers;
 import com.teamcos.modularsystems.utilities.WorldUtil;
 import com.teamcos.modularsystems.utilities.tiles.DummyTile;
-import com.teamcos.modularsystems.utilities.tiles.FueledRecipeTile;
+import com.teamcos.modularsystems.utilities.tiles.MSCoreTile;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -34,7 +33,7 @@ public class DummyBlock extends BlockContainer implements MSUpgradeBlock {
     public void breakBlock(World world, int x, int y, int z, Block par5, int par6) {
         DummyTile dummy = (DummyTile) world.getTileEntity(x, y, z);
 
-        FueledRecipeTile core = dummy.getCore();
+        MSCoreTile core = dummy.getCore();
 
         if (core != null) {
             core.setDirty();
@@ -66,10 +65,10 @@ public class DummyBlock extends BlockContainer implements MSUpgradeBlock {
         if (player.isSneaking()) return false;
 
         DummyTile dummy = (DummyTile) world.getTileEntity(x, y, z);
-        FueledRecipeTile core;
+        MSCoreTile core;
 
         if (dummy != null && (core = dummy.getCore()) != null) {
-            return core.getBlockType().onBlockActivated(world, core.xCoord, core.yCoord, core.zCoord, player, par6, par7, par8, par9);
+            return core.getBlockType().onBlockActivated(world, core.getX(), core.getY(), core.getZ(), player, par6, par7, par8, par9);
         } else {
             return true;
         }

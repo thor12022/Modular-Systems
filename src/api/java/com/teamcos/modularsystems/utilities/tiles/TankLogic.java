@@ -1,7 +1,7 @@
 package com.teamcos.modularsystems.utilities.tiles;
 
 import com.teamcos.modularsystems.fuelprovider.FuelProvider;
-import com.teamcos.modularsystems.helpers.LiquidHelper;
+import com.teamcos.modularsystems.registries.ApiRegistries;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
@@ -192,14 +192,14 @@ public class TankLogic extends DummyTile implements IFluidHandler, FuelProvider
 
     @Override
     public double fuelProvided() {
-        return LiquidHelper.getLiquidBurnTime(tank.getFluid());
+        return ApiRegistries.liquidRegistry.getFuelValue(tank.getFluid());
     }
 
     @Override
     public double consume() {
         if (canProvide()) {
             drain(ForgeDirection.UNKNOWN, 400, true);
-            return LiquidHelper.getLiquidBurnTime(tank.getFluid());
+            return ApiRegistries.liquidRegistry.getFuelValue(tank.getFluid());
         } else {
             return 0;
         }

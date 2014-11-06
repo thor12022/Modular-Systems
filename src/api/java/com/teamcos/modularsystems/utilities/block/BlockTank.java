@@ -1,13 +1,12 @@
 package com.teamcos.modularsystems.utilities.block;
 
 import com.teamcos.modularsystems.notification.GuiColor;
-import com.teamcos.modularsystems.interfaces.MSUpgradeBlock;
 import com.teamcos.modularsystems.notification.Notification;
 import com.teamcos.modularsystems.notification.NotificationHelper;
 import com.teamcos.modularsystems.registries.FurnaceConfigHandler;
 import com.teamcos.modularsystems.renderers.TankRenderer;
 import com.teamcos.modularsystems.utilities.tiles.DummyTile;
-import com.teamcos.modularsystems.utilities.tiles.FueledRecipeTile;
+import com.teamcos.modularsystems.utilities.tiles.MSCoreTile;
 import com.teamcos.modularsystems.utilities.tiles.TankLogic;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -157,10 +156,10 @@ public class BlockTank extends BlockContainer implements MSUpgradeBlock {
             }
 
             DummyTile dummy = (DummyTile) world.getTileEntity(x, y, z);
-            FueledRecipeTile core;
+            MSCoreTile core;
 
             if (dummy != null && (core = dummy.getCore()) != null) {
-                return core.getBlockType().onBlockActivated(world, core.xCoord, core.yCoord, core.zCoord, entityplayer, par6, par7, par8, par9);
+                return core.getBlockType().onBlockActivated(world, core.getX(), core.getY(), core.getZ(), entityplayer, par6, par7, par8, par9);
             } else {
                 return true;
             }
@@ -203,7 +202,7 @@ public class BlockTank extends BlockContainer implements MSUpgradeBlock {
     {
         DummyTile dummy = (DummyTile) world.getTileEntity(x, y, z);
 
-        FueledRecipeTile core = dummy.getCore();
+        MSCoreTile core = dummy.getCore();
 
         if (core != null) {
             core.setDirty();

@@ -1,6 +1,6 @@
 package com.teamcos.modularsystems.functions;
 
-import com.teamcos.modularsystems.helpers.Coord;
+import com.teamcos.modularsystems.collections.Coord;
 import com.teamcos.modularsystems.utilities.tiles.DummyTile;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;

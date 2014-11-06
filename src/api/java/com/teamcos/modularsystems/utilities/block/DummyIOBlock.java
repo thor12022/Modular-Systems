@@ -5,7 +5,7 @@ import com.teamcos.modularsystems.notification.NotificationHelper;
 import com.teamcos.modularsystems.renderers.ApiRenderers;
 import com.teamcos.modularsystems.utilities.tiles.DummyIOTile;
 import com.teamcos.modularsystems.utilities.tiles.DummyTile;
-import com.teamcos.modularsystems.utilities.tiles.FueledRecipeTile;
+import com.teamcos.modularsystems.utilities.tiles.MSCoreTile;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -28,7 +28,7 @@ public class DummyIOBlock extends DummyBlock {
     @Override
     public void breakBlock(World world, int x, int y, int z, Block par5, int par6) {
         DummyIOTile dummy = (DummyIOTile)world.getTileEntity(x, y, z);
-        FueledRecipeTile core = dummy.getCore();
+        MSCoreTile core = dummy.getCore();
         if(core != null) core.setDirty();
         super.breakBlock(world, x, y, z, par5, par6);
     }

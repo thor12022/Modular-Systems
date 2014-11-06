@@ -1,11 +1,11 @@
 package com.teamcos.modularsystems.utilities.tiles;
 
+import com.teamcos.modularsystems.collections.Coord;
+import com.teamcos.modularsystems.helpers.LocalBlockCollections;
+import com.teamcos.modularsystems.collections.SimpleLocatable;
 import com.teamcos.modularsystems.inventory.InventoryUtil;
 import com.teamcos.modularsystems.utilities.WorldUtil;
-import com.teamcos.modularsystems.helpers.Coord;
-import com.teamcos.modularsystems.helpers.LocalBlockCollections;
 import com.teamcos.modularsystems.utilities.block.DummyIOBlock;
-import com.teamcos.modularsystems.utilities.block.ModularSystemsTile;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -18,7 +18,7 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class DummyTile extends ModularTileEntity implements ISidedInventory, ModularSystemsTile {
+public class DummyTile extends ModularTileEntity implements ISidedInventory, MSTile {
 
     private Coord coreLoc = new Coord(-100, -100, -100);
     private int icon = 1;
@@ -28,7 +28,7 @@ public class DummyTile extends ModularTileEntity implements ISidedInventory, Mod
 
     public DummyTile() {}
 
-    public FueledRecipeTile getCore() {
+    public MSCoreTile getCore() {
         TileEntity te;
         if (coreLoc == null) {
             return null;
@@ -78,8 +78,8 @@ public class DummyTile extends ModularTileEntity implements ISidedInventory, Mod
         if (getCore() == null) {
             worldObj.setBlock(xCoord, yCoord, zCoord, getBlock());
         } else if(coolDown < 0) {
-            if (worldObj.getBlock(xCoord, yCoord, zCoord) instanceof DummyIOBlock && !worldObj.isRemote && slot == 2) {
-                FueledRecipeTile core = getCore();
+            if (!worldObj.isRemote && slot == 2 && worldObj.getBlock(xCoord, yCoord, zCoord) instanceof DummyIOBlock) {
+                MSCoreTile core = getCore();
                 if (core != null) {
                     for (Coord dir : LocalBlockCollections.getAdjacentBlocks()) {
                         TileEntity te = worldObj.getTileEntity(xCoord + dir.x, yCoord + dir.y, zCoord + dir.z);
@@ -89,7 +89,7 @@ public class DummyTile extends ModularTileEntity implements ISidedInventory, Mod
                                 if (dummy.getCore() == null || WorldUtil.areTilesSame(dummy.getCore(), this.getCore())) {
                                     continue;
                                 }
-                            } else if (WorldUtil.areTilesSame(te, core)) {
+                            } else if (WorldUtil.areTilesSame(new SimpleLocatable(te), core)) {
                                 continue;
                             }
 
@@ -111,37 +111,37 @@ public class DummyTile extends ModularTileEntity implements ISidedInventory, Mod
 
     @Override
     public int getSizeInventory() {
-        FueledRecipeTile core = getCore();
+        MSCoreTile core = getCore();
         return core == null ? 0 : core.getSizeInventory();
     }
 
     @Override
     public ItemStack getStackInSlot(int i) {
-        FueledRecipeTile core = getCore();
+        MSCoreTile core = getCore();
         return core == null ? null : core.getStackInSlot(i);
     }
 
     @Override
     public ItemStack decrStackSize(int i, int j) {
-        FueledRecipeTile core = getCore();
+        MSCoreTile core = getCore();
         return core == null ? null : core.decrStackSize(i, j);
     }
 
     @Override
     public ItemStack getStackInSlotOnClosing(int i) {
-        FueledRecipeTile core = getCore();
+        MSCoreTile core = getCore();
         return core == null ? null : core.getStackInSlotOnClosing(i);
     }
 
     @Override
     public void setInventorySlotContents(int i, ItemStack itemstack) {
-        FueledRecipeTile core = getCore();
+        MSCoreTile core = getCore();
         if(core != null) core.setInventorySlotContents(i, itemstack);
     }
 
     @Override
     public int getInventoryStackLimit() {
-        FueledRecipeTile core = getCore();
+        MSCoreTile core = getCore();
         return core == null ? 0 : core.getInventoryStackLimit();
     }
 
@@ -152,19 +152,19 @@ public class DummyTile extends ModularTileEntity implements ISidedInventory, Mod
 
     @Override
     public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-        FueledRecipeTile core = getCore();
+        MSCoreTile core = getCore();
         return core == null ? false : core.isItemValidForSlot(i, itemstack);
     }
 
     @Override
     public boolean canInsertItem(int i, ItemStack itemstack, int j) {
-        FueledRecipeTile core = getCore();
+        MSCoreTile core = getCore();
         return core == null ? false : core.canInsertItem(i, itemstack, j);
     }
 
     @Override
     public boolean canExtractItem(int i, ItemStack itemstack, int j) {
-        FueledRecipeTile core = getCore();
+        MSCoreTile core = getCore();
         return core == null
                 ? false
                 : slot <= 3
@@ -174,13 +174,13 @@ public class DummyTile extends ModularTileEntity implements ISidedInventory, Mod
 
     @Override
     public String getInventoryName() {
-        FueledRecipeTile core = getCore();
+        MSCoreTile core = getCore();
         return core == null ? "" : core.getInventoryName();
     }
 
     @Override
     public boolean hasCustomInventoryName() {
-        FueledRecipeTile core = getCore();
+        MSCoreTile core = getCore();
         return core == null ? false : core.hasCustomInventoryName();
     }
 
@@ -194,7 +194,7 @@ public class DummyTile extends ModularTileEntity implements ISidedInventory, Mod
 
     @Override
     public int[] getAccessibleSlotsFromSide(int var1) {
-        FueledRecipeTile core = getCore();
+        MSCoreTile core = getCore();
         return core == null
                 ? new int[]{0}
                 : slot <= 3

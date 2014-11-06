@@ -1,6 +1,6 @@
 package com.teamcos.modularsystems.functions;
 
-import com.teamcos.modularsystems.interfaces.MSUpgradeBlock;
+import com.teamcos.modularsystems.utilities.block.MSUpgradeBlock;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 

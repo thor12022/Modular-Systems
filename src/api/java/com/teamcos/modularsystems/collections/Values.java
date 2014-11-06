@@ -1,8 +1,6 @@
 package com.teamcos.modularsystems.collections;
 
 
-import com.teamcos.modularsystems.helpers.Coord;
-
 import java.util.List;
 
 public class Values {

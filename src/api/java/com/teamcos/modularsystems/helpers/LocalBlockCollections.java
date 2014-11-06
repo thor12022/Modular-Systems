@@ -1,5 +1,7 @@
 package com.teamcos.modularsystems.helpers;
 
+import com.teamcos.modularsystems.collections.Coord;
+import com.teamcos.modularsystems.functions.MyFunction;
 import com.teamcos.modularsystems.functions.WorldFunction;
 import com.teamcos.modularsystems.utilities.tiles.shapes.Cuboid;
 import net.minecraft.world.World;

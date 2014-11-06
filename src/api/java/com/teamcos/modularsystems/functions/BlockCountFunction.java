@@ -1,6 +1,6 @@
 package com.teamcos.modularsystems.functions;
 
-import com.teamcos.modularsystems.helpers.Coord;
+import com.teamcos.modularsystems.collections.Coord;
 import net.minecraft.block.Block;
 
 import java.util.List;

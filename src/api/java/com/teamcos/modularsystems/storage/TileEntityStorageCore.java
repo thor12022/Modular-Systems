@@ -1,6 +1,6 @@
 package com.teamcos.modularsystems.storage;
 
-import com.teamcos.modularsystems.helpers.Locatable;
+import com.teamcos.modularsystems.interfaces.Locatable;
 import net.minecraft.inventory.IInventory;
 
 public interface TileEntityStorageCore extends IInventory, Locatable {

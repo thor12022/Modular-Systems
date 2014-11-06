@@ -1,8 +1,7 @@
 package com.teamcos.modularsystems.core.helper;
 
 import com.teamcos.modularsystems.core.lib.Reference;
-import com.teamcos.modularsystems.registries.BannedFurnaceBlockRegistry;
-import com.teamcos.modularsystems.registries.BannedOreProcessorBlockRegistry;
+import com.teamcos.modularsystems.registries.ApiRegistries;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -83,8 +82,8 @@ public class ConfigHelper {
 					Blocks.emerald_ore.getUnlocalizedName(), Blocks.gold_ore.getUnlocalizedName(),}).getStringList();
 
             for (String bannedBlock : bannedBlocks) {
-                BannedFurnaceBlockRegistry.banBlock(bannedBlock);
-                BannedOreProcessorBlockRegistry.banBlock(bannedBlock);
+                ApiRegistries.bannedFurnaceBlocks.banBlock(bannedBlock);
+                ApiRegistries.bannedProcessorBlocks.banBlock(bannedBlock);
             }
 
 			useTextures = config.get("Settings, Modular Furnace", "Use Vanilla Texture For Overlay?", true).getBoolean(true);

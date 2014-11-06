@@ -1,10 +1,9 @@
 package com.teamcos.modularsystems.helpers;
 
-import com.teamcos.modularsystems.interfaces.MSUpgradeBlock;
 import com.teamcos.modularsystems.notification.Notification;
 import com.teamcos.modularsystems.notification.NotificationHelper;
-import com.teamcos.modularsystems.registries.BannedFurnaceBlockRegistry;
-import com.teamcos.modularsystems.registries.BannedOreProcessorBlockRegistry;
+import com.teamcos.modularsystems.registries.ApiRegistries;
+import com.teamcos.modularsystems.utilities.block.MSUpgradeBlock;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -44,7 +43,9 @@ public class FurnaceHelper {
     public static boolean isValidBlock(String blockId) {
 
         Block block = Block.getBlockFromName(blockId);
-        if (BannedFurnaceBlockRegistry.isBanned(blockId) || BannedOreProcessorBlockRegistry.isBanned(blockId)) return false;
+        if (ApiRegistries.bannedFurnaceBlocks.isBanned(blockId) || ApiRegistries.bannedProcessorBlocks.isBanned(blockId)) {
+            return false;
+        }
 
         if (block instanceof MSUpgradeBlock || blockId.equals(Blocks.redstone_block.getUnlocalizedName())) return true;
 

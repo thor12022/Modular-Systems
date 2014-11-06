@@ -1,12 +1,7 @@
 package com.teamcos.modularsystems.core.lib;
 
 import com.teamcos.modularsystems.core.managers.BlockManager;
-import com.teamcos.modularsystems.interfaces.MSUpgradeBlock;
 import com.teamcos.modularsystems.manager.ApiBlockManager;
-import com.teamcos.modularsystems.registries.BannedFurnaceBlockRegistry;
-import com.teamcos.modularsystems.registries.BannedOreProcessorBlockRegistry;
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 
 import java.util.Random;
 

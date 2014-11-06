@@ -1,10 +1,9 @@
 package com.teamcos.modularsystems.collections;
 
 import com.teamcos.modularsystems.functions.BlockCountFunction;
-import com.teamcos.modularsystems.helpers.Coord;
 import com.teamcos.modularsystems.helpers.LocalBlockCollections;
-import com.teamcos.modularsystems.helpers.Locatable;
-import com.teamcos.modularsystems.interfaces.MSUpgradeBlock;
+import com.teamcos.modularsystems.interfaces.Locatable;
+import com.teamcos.modularsystems.utilities.block.MSUpgradeBlock;
 import com.teamcos.modularsystems.registries.FurnaceConfigHandler;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;

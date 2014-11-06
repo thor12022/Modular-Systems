@@ -1,4 +1,4 @@
-package com.teamcos.modularsystems.helpers;
+package com.teamcos.modularsystems.collections;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;

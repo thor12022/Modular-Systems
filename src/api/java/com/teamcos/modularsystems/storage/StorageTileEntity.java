@@ -1,6 +1,6 @@
 package com.teamcos.modularsystems.storage;
 
-import com.teamcos.modularsystems.helpers.Coord;
+import com.teamcos.modularsystems.collections.Coord;
 import com.teamcos.modularsystems.helpers.LocalBlockCollections;
 import com.teamcos.modularsystems.helpers.WorldUtil;
 import com.teamcos.modularsystems.utilities.tiles.ModularTileEntity;

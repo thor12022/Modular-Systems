@@ -1,6 +1,6 @@
 package com.teamcos.modularsystems.registries;
 
-import com.teamcos.modularsystems.furnace.config.BlockConfig;
+import com.teamcos.modularsystems.collections.BlockConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
